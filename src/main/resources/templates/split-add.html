@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Создать сплит</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div th:insert="blocks/header :: header"></div>
+<main>
+    <div class="container">
+        <style>
+            h1 {
+                margin-top: 10%;
+                margin-bottom: 3%;
+            }
+        </style>
+
+        <h1>Создать сплит</h1>
+        <form action="/split/add" method="post" th:object="${split}">
+            <input type="hidden" th:field="*{id}" th:value="${split.id}" class="form-control"><br>
+            <div class="form-group">
+                <input type="text" placeholder="Введите название сплита" th:field="*{name}" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label th:for="type">Упражнения:</label><br>
+                <select th:field="*{exercises}" class="form-control" multiple="multiple" required>
+                    <th:block th:each="ex : ${exercises}">
+                        <option th:text="${ex.name}" th:value="${ex.id}"></option>
+                    </th:block>
+                </select>
+            </div>
+            <textarea type="text" name="description" placeholder="Введите описание" class="form-control"></textarea><br>
+            <button type="submit" class="btn btn-success">Сохранить</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

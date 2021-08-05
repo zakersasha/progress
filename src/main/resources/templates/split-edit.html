@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Изменение сплита</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<style>
+    .container{
+        margin-top: 5%;
+    }
+</style>
+<div class="container">
+    <h1>Редактирование сплита</h1><br>
+    <div th:each="el : ${split}">
+        <form method="post">
+            <input type="text" th:value="${el.name}" pattern="[А-Яа-яЁё ]+" title="Некорректный формат" name="name" placeholder="Введите название"
+                   class="form-control"><br>
+            <input type="text" th:value="${el.exercises}" title="Некорректный формат" name="type" placeholder="Выберите упражнения"
+                   class="form-control"><br>
+            <input type="text" th:value="${el.description}" name="description" placeholder="Введите описание"
+                   class="form-control"><br>
+            <button type="submit" class="btn btn-success">Сохранить изменения</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

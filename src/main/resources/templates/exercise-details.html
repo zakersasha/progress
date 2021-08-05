@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Упражнения</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container">
+    <div th:each="el : ${exercise}" class="alert alert-info">
+        <h3 th:text="${el.name}"/>
+        <p th:text="${el.type}"/>
+        <p th:text="${el.description}"/>
+        <a th:href="'/exercise/' + ${el.id} + '/edit'" class="btn btn-warning" type="submit">Редактировать</a><br>
+        <form th:action="'/exercise/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning mt-2" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

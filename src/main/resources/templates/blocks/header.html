@@ -1,0 +1,32 @@
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mr-3" href="/">Blossom Forth</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="d-flex flex-row">
+                        <a class="nav-link active" aria-current="page" href="/exercise">Упражнения</a>
+                    </li>
+                    <li class="d-flex flex-row">
+                        <a class="nav-link active" aria-current="page" href="/split">Сплиты</a>
+                    </li>
+
+                    <li class="d-flex flex-row">
+                        <a class="nav-link active" href="/results">Достижения</a>
+                    </li>
+
+                    <li class="d-flex flex-row-reverse">
+                        <a class="nav-link active" href="/split/add">Создать сплит</a>
+                    </li>
+                    <li class="d-flex flex-row-reverse">
+                        <a class="nav-link active" href="/exercise/add">Добавить упражнение</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

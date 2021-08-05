@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление упражнения</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div th:insert="blocks/header :: header"></div>
+<div class="container">
+    <style>
+        h1 {
+            margin-top: 10%;
+            margin-bottom: 3%;
+        }
+    </style>
+
+    <h1>Добавить упражнение</h1>
+    <form action="/exercise/add" method="post" th:object="${exercise}">
+        <input type="text" name="name" placeholder="Введите название упражнения" class="form-control"><br>
+        <div class="form-group">
+            <label th:for="type">Выберите группу мышц: </label><br>
+            <select th:field="*{type}">
+                <option th:each="BodyType : ${bodyTypes}"
+                        th:text="${BodyType.name}"
+                        th:value="${BodyType}"></option>
+            </select>
+        </div>
+        <textarea type="text" name="description" placeholder="Введите описание" class="form-control"></textarea><br>
+        <button type="submit" class="btn btn-success">Добавить упражнение</button>
+    </form>
+</div>
+</body>
+</html>
